@@ -182,7 +182,7 @@ topBtn.onclick=()=>{
     Active Navbar Links
 =========================== */
 
-const navLinks=document.querySelectorAll("nav ul li a");
+const navItems=document.querySelectorAll("nav ul li a");
 
 window.addEventListener("scroll",()=>{
 
@@ -200,13 +200,14 @@ window.addEventListener("scroll",()=>{
 
     });
 
-    navLinks.forEach(link=>{
+  navItems.forEach(link => {
 
-        link.classList.remove("active");
+    link.classList.remove("active");
 
-        if(link.getAttribute("href")==="#"+current){
+    if(link.getAttribute("href")==="#" + current){
 
-            link.classList.add("active");
+        link.classList.add("active");
+
 
         }
 
@@ -431,6 +432,30 @@ document.querySelectorAll(
 ).forEach((card,index)=>{
 
 card.style.animationDelay=(index*.25)+"s";
+
+});
+/* ===========================
+   Mobile Menu
+=========================== */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+// Close menu after clicking a link
+
+document.querySelectorAll("#navLinks a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
 
 });
 
